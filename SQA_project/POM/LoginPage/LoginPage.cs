@@ -1,4 +1,5 @@
 ﻿using AutoIt;
+using AventStack.ExtentReports;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -15,31 +16,13 @@ namespace SQA_project.POM.LoginPage
 {
     [TestClass]
     public class LoginPage : Execution
-    {
-
-
-
-
-        //InputSimulator sim = new InputSimulator();
-
-
-        //sim.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-        //sim.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-        //sim.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-        //sim.Keyboard.TextEntry("AmirImam");
-        //sim.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-        //sim.Keyboard.TextEntry("AmirImam");
-        //sim.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
+    { 
         [TestMethod]
-
-
-
-
         //Task 2
         public void BroswerOption()
         {
-            string expected = "Invalid Login details or Your Password might have expired.";
-            string actual = "Invalid Login details or Your Password might have expired.";
+            //string expected = "Invalid Login details or Your Password might have expired.";
+            //string actual = "Invalid Login details or Your Password might have expired.";
             ChromeOptions options = new ChromeOptions();
             // EdgeOptions options = new EdgeOptions();
 
@@ -58,7 +41,7 @@ namespace SQA_project.POM.LoginPage
             EnterText(username, "AmirImam");
             EnterText(password, "bnsdkjkjasbdwsd");
             Click(loginbtn);
-            Assert.AreEqual(expected, actual);
+          //  Assert.AreEqual(expected, actual);
 
             Screenshot();
 
@@ -74,28 +57,33 @@ namespace SQA_project.POM.LoginPage
         ////Thread.Sleep(2000);
         ////AutoItX.MouseClick();
 
-        public void ButtonKey(string keyname)
-        {
-            AutoItX.Send(keyname);
-        }
-        public void EnetrTextAutoItX(string name)
-        {
-            AutoItX.Send(name);
-
-        }
-        public void SleepAutoItX(int sec) {
-            Thread.Sleep(sec *1000);
-        }
+       
 
         [TestMethod]
         public void FromAutomateAutoItX() {
+           
+            
+            exParentTest = extentReports.CreateTest(TestContext.TestName);
+            exChildTest = exParentTest.CreateNode("FromAutomateAutoItX");
+    
             OpenUrl("https://demoqa.com/automation-practice-form");
+            string path = @"C:\TestExecutionReports\";
             ButtonKey("{TAB 2}");
             EnetrTextAutoItX("Sanoj");
+
+            TakeScreenShot(Status.Pass," UserName");
+            exChildTest.Log(Status.Pass, "User", MediaEntityBuilder.CreateScreenCaptureFromPath(path + "filename1.png").Build());
+           
+            
             ButtonKey("{TAB}");
             EnetrTextAutoItX("khatri");
             ButtonKey("{TAB}");
             EnetrTextAutoItX("Sanoj@gamil.com");
+
+
+            TakeScreenShot(Status.Pass, " Email");
+            exChildTest.Log(Status.Pass, "Email", MediaEntityBuilder.CreateScreenCaptureFromPath(path + "filename2.png").Build());
+           
             ButtonKey("{TAB}");
             ButtonKey("{SPACE}");
             ButtonKey("{TAB}");
@@ -113,7 +101,10 @@ namespace SQA_project.POM.LoginPage
             EnetrTextAutoItX("Rajastan");
             ButtonKey("{TAB}");
             EnetrTextAutoItX("Noida");
+            TakeScreenShot(Status.Pass, "City");
+            exChildTest.Log(Status.Pass, "Enetr Password", MediaEntityBuilder.CreateScreenCaptureFromPath(path + "filename4.png").Build());
             ButtonKey("{ENTER}");
+            QuitChrome();
         }
     }
 }

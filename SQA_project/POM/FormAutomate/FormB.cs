@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using AventStack.ExtentReports;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,9 @@ namespace SQA_project.POM.FormAutomate
     {
         [TestMethod]
         public void FormBAutomate() {
+          
             OpenUrl("https://fs2.formsite.com/meherpavan/form2/index.html?1537702596407");
+            
             InitilizeInputSimulator();
             
             TabKeyISimulator();
@@ -50,6 +54,9 @@ namespace SQA_project.POM.FormAutomate
             TabKeyISimulator();
             TabKeyISimulator();
             EnterKeyISimulator();
+
+           
+           
            
             //TabKeyISimulator();
             //TabKeyISimulator();

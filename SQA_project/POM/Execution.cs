@@ -25,10 +25,14 @@ namespace  SQA_project.POM
             get { return testContext; }
         }
         [AssemblyInitialize]
-        public static void AssemblyIntitialize(TestContext testContext) { }
+        public static void AssemblyIntitialize(TestContext testContext) {
+            LogReport(testContext.TestName);
+        }
 
         [AssemblyCleanup]
-        public static void AssemblClean() { }
+        public static void AssemblClean() {
+            extentReports.Flush();
+        }
         [ClassInitialize]
         public void ClassInitialize()
         {

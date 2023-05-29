@@ -1,10 +1,12 @@
 ﻿using AutoIt;
 using AventStack.ExtentReports;
 using AventStack.ExtentReports.Reporter;
+using AventStack.ExtentReports.Reporter.Configuration;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -163,14 +165,26 @@ namespace SQA_project.POM
         public static string dirpath;
         public static void LogReport(string testcase) {
             extentReports = new ExtentReports();
-            dirpath = @".\..\TestExecutionReports\" + '_' + testcase;
+            dirpath = @"C:\TestExecutionReports\"+ testcase;
 
             ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(dirpath);
-            htmlReporter.Config.Theme = AventStack.ExtentReports.Reporter.Configuration.Theme.Standard;
+            htmlReporter.Config.Theme = Theme.Standard;
             extentReports.AttachReporter(htmlReporter);
 
-        }                           
-                        
+        }
+        public static void TakeScreenShot(Status status, string stepDetail)
+        {
+            ITakesScreenshot screenshotDriver = driver as ITakesScreenshot;
+            Screenshot screenshot = screenshotDriver.GetScreenshot();
+            string screenshotPath = Path.Combine(dirpath, "Screenshots");
+            Directory.CreateDirectory(screenshotPath);
+            string screenshotFile = Path.Combine(screenshotPath, $"{DateTime.Now:yyyyMMddHHmmssfff}.png");
+            screenshot.SaveAsFile(screenshotFile, ScreenshotImageFormat.Png);
+
+            exChildTest.Log(status, stepDetail, MediaEntityBuilder.CreateScreenCaptureFromPath(screenshotFile).Build());
+        }
+
+        //Auto IT
 
     }
 }

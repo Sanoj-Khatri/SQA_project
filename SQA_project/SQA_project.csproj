@@ -457,6 +457,9 @@
     <Compile Include="POM\LoginPage\LoginPageLocator.cs" />
     <Compile Include="POM\LoginPage\LoginPage.cs" />
     <Compile Include="POM\NotePad\Notepad.cs" />
+    <Compile Include="POM\SwagLabs\AccountLogin\LoginPageMethod.cs" />
+    <Compile Include="POM\SwagLabs\AccountLogin\LoginPageLocator.cs" />
+    <Compile Include="POM\SwagLabs\AccountLogin\LoginPageTC.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -466,6 +469,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="POM\SignUpPage\" />
+    <Folder Include="POM\SwagLabs\AddToCart\" />
+    <Folder Include="POM\SwagLabs\CheckOut\" />
+    <Folder Include="POM\SwagLabs\HomePage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="XMLFile1.xml" />
