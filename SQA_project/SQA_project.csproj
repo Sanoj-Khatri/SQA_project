@@ -460,6 +460,8 @@
     <Compile Include="POM\SwagLabs\AccountLogin\LoginPageMethod.cs" />
     <Compile Include="POM\SwagLabs\AccountLogin\LoginPageLocator.cs" />
     <Compile Include="POM\SwagLabs\AccountLogin\LoginPageTC.cs" />
+    <Compile Include="POM\SwagLabs\HomePage\HomePage.cs" />
+    <Compile Include="POM\SwagLabs\HomePage\HomePageMethod.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -471,7 +473,6 @@
     <Folder Include="POM\SignUpPage\" />
     <Folder Include="POM\SwagLabs\AddToCart\" />
     <Folder Include="POM\SwagLabs\CheckOut\" />
-    <Folder Include="POM\SwagLabs\HomePage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="XMLFile1.xml" />

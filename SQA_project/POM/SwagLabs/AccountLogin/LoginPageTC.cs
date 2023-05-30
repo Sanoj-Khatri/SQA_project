@@ -8,99 +8,141 @@ using System.Threading.Tasks;
 namespace SQA_project.POM.SwagLabs.AccountLogin
 {
     [TestClass]
-    public partial class LoginPageTC : Execution
+    
+    public  class LoginPageTC : Execution
     {
         LoginPage loginPage = new LoginPage();
+        public TestContext TestContext { get; set; }
+
+        #region Standard_User
         [TestMethod]
-        public void ValidLoginStander() {
-            OpenUrl("https://www.saucedemo.com/");
-            loginPage.username = "standard_user";
-            loginPage.password = "secret_sauce";
-            loginPage.Login();
-            QuitChrome();
+    
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+                   @"C:\Users\Sanojgopi\source\repos\SQA_project\SQA_project\XMLFile1.xml", "Login", DataAccessMethod.Sequential)]
+        public  void ValidLoginStander() {
+           
+            string url = TestContext.DataRow["url"].ToString();
+            string standarUsername = TestContext.DataRow["stndrUsername"].ToString();
+            string password = TestContext.DataRow["password"].ToString();
+            TestContext.Properties.Add("url", url);
+            TestContext.Properties.Add("stndrUsername", standarUsername);
+            TestContext.Properties.Add("password", password);
+
+            OpenUrl(url);
+            loginPage.Login(standarUsername, password);
+            
 
 
         }
+        #endregion
+
+
         [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+                   @"C:\Users\Sanojgopi\source\repos\SQA_project\SQA_project\XMLFile1.xml", "Login", DataAccessMethod.Sequential)]
         public void LockedUserLogin()
+
         {
-            OpenUrl("https://www.saucedemo.com/");
-            loginPage.username = "locked_out_user";
-            loginPage.password = "secret_sauce";
-            loginPage.Login();
-            QuitChrome();
+            string url = TestContext.DataRow["url"].ToString();
+            string lockedUsername = TestContext.DataRow["lockedUsername"].ToString();
+            string password = TestContext.DataRow["password"].ToString();
+            OpenUrl(url);
+          
+            loginPage.Login(lockedUsername,password);
+           
 
         }
         [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+                   @"C:\Users\Sanojgopi\source\repos\SQA_project\SQA_project\XMLFile1.xml", "Login", DataAccessMethod.Sequential)]
         public void ProblemUserLogin()
         {
-            OpenUrl("https://www.saucedemo.com/");
-            loginPage.username = "problem_user";
-            loginPage.password = "secret_sauce";
-            loginPage.Login();
-            QuitChrome();
+            string url = TestContext.DataRow["url"].ToString();
+            string problemUsername = TestContext.DataRow["problemUsername"].ToString();
+            string password = TestContext.DataRow["password"].ToString();
+           
+            OpenUrl(url);
+            loginPage.Login(problemUsername,password);
+          
 
         }
         [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+                   @"C:\Users\Sanojgopi\source\repos\SQA_project\SQA_project\XMLFile1.xml", "Login", DataAccessMethod.Sequential)]
         public void PerformanceGlitchUserLogin()
         {
-            OpenUrl("https://www.saucedemo.com/");
-            loginPage.username = "performance_glitch_user";
-            loginPage.password = "secret_sauce";
-            loginPage.Login();
-            QuitChrome();
+            string url = TestContext.DataRow["url"].ToString();
+            string perfromanceUsername = TestContext.DataRow["perfromanceUsername"].ToString();
+            string password = TestContext.DataRow["password"].ToString();
+            
+            OpenUrl(url);
+            loginPage.Login(perfromanceUsername,password);
+          
 
         }
         [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+                   @"C:\Users\Sanojgopi\source\repos\SQA_project\SQA_project\XMLFile1.xml", "Login", DataAccessMethod.Sequential)]
         public void EmptyUserLogin()
         {
-            OpenUrl("https://www.saucedemo.com/");
-            loginPage.username = null;
-            loginPage.password = "secret_sauce";
-            loginPage.Login();
-            QuitChrome();
-
+            string url = TestContext.DataRow["url"].ToString();
+            string password = TestContext.DataRow["password"].ToString();
+            OpenUrl(url);
+            loginPage.Login(null, password);
+            
         }
 
         [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+                   @"C:\Users\Sanojgopi\source\repos\SQA_project\SQA_project\XMLFile1.xml", "Login", DataAccessMethod.Sequential)]
         public void EmptyPasswordLogin()
         {
-            OpenUrl("https://www.saucedemo.com/");
-            loginPage.username = "standard_user";
-            loginPage.password = null;
-            loginPage.Login();
-            QuitChrome();
+            string url = TestContext.DataRow["url"].ToString();
+            string perfromanceUsername = TestContext.DataRow["perfromanceUsername"].ToString();
+           
+
+            OpenUrl(url);
+            loginPage.Login(perfromanceUsername,null);
+            
 
         }
         [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+                   @"C:\Users\Sanojgopi\source\repos\SQA_project\SQA_project\XMLFile1.xml", "Login", DataAccessMethod.Sequential)]
         public void EmptyLogin()
         {
-            OpenUrl("https://www.saucedemo.com/");
-            loginPage.username = null;
-            loginPage.password = null;
-            loginPage.Login();
-            QuitChrome();
-
+            string url = TestContext.DataRow["url"].ToString();
+            OpenUrl(url);
+            loginPage.Login(null , null);
+            
         }
 
         [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+                   @"C:\Users\Sanojgopi\source\repos\SQA_project\SQA_project\XMLFile1.xml", "Login", DataAccessMethod.Sequential)]
         public void InvalidLogin()
         {
-            OpenUrl("https://www.saucedemo.com/");
-            loginPage.username = "standard";
-            loginPage.password = "122113212";
-            loginPage.Login();
-            QuitChrome();
+            
+            string url = TestContext.DataRow["url"].ToString();
+            string invalidUser = TestContext.DataRow["invalidUser"].ToString();
+            string invalidPaswd = TestContext.DataRow["invalidPassword"].ToString();
+            OpenUrl(url);
+           
+            loginPage.Login(invalidUser,invalidPaswd);
+           
 
         }
         [TestMethod]
+        [DataSource("Microsoft.VisualStudio.TestTools.DataSource.XML",
+                   @"C:\Users\Sanojgopi\source\repos\SQA_project\SQA_project\XMLFile1.xml", "Login", DataAccessMethod.Sequential)]
         public void LoginUpperCase()
         {
-            OpenUrl("https://www.saucedemo.com/");
-            loginPage.username = "STANDARD_USER";
-            loginPage.password = "secret_sauce";
-            loginPage.Login();
-            QuitChrome();
+            string url = TestContext.DataRow["url"].ToString();
+            string userUpperCase = TestContext.DataRow["userUpperCase"].ToString();
+            string password = TestContext.DataRow["password"].ToString();
+          
+            loginPage.Login(userUpperCase,password);
+          
 
         }
 

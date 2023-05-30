@@ -34,6 +34,7 @@ namespace  SQA_project.POM
             extentReports.Flush();
         }
         [ClassInitialize]
+       
         public void ClassInitialize()
         {
 
@@ -52,9 +53,12 @@ namespace  SQA_project.POM
             ////   driver.Url = "";
             //driver.Manage().Window.Maximize();
             //    Assert.AreEqual("", driver.Title(""));
+           
         }
         [TestCleanup]
-        public static void TestCleanup() { }
+        public  void TestCleanup() {
+            //QuitChrome();
+        }
 
     }
 }

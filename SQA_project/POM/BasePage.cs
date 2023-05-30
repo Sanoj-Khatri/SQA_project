@@ -186,6 +186,10 @@ namespace SQA_project.POM
 
         //Auto IT
 
+        public static  void DataDriven() {
+        
+        }
+
     }
 }
 /*

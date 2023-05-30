@@ -1,41 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Automation>
 	<Execution>
-		<Register>
-			<username>adminsanoj</username>
-			<password>12345678</password>
-			<confrimpassword>12345678</confrimpassword>
-		</Register>
 		<Login>
-			<url>https://adactinhotelapp.com/</url>
-			<username>Nigel</username>
-			<password>Sanoj@123</password>
-		</Login>
-		<SecondWeb>
-			<url>http://automationpractice.pl/index.php</url>
-			<username>adminsanoj</username>
-			<password>Sanoj@123</password>
-		</SecondWeb>
-		<FromAutomate>
+			<url>https://www.saucedemo.com/</url>
+			<stndrUsername>standard_user</stndrUsername>
+			<password>secret_sauce</password>
+			<lockedUsername>locked_out_user</lockedUsername>
+			<problemUsername>problem_user</problemUsername>
 			
-			<firstname>sanoj</firstname>
-			<lastname>Das</lastname>
-			<email>sanojgmail@gmail.com</email>
-			<mobile>034454005345</mobile>
-			<subject>Maths</subject>
-			<address>Hyderabad</address>
-			<state>Haryana</state>
-			<city>Karnal</city>
+			<perfromanceUsername>performance_glitch_user</perfromanceUsername>
+			<invalidUser>sanoj</invalidUser>
+			<userUpperCase>STANDARD_USER</userUpperCase>
+			<invalidPassword>sa122</invalidPassword>
+			
+		</Login>
 
-
-		</FromAutomate>
-		<TextBox>
-			<url>https://demoqa.com/text-box</url>
-			<fullName>Sanoj</fullName>
-			<email>Sanoj@gmail.com</email>
-			<curaddress>Hyderabad</curaddress>
-			<parmntaddress>karachi</parmntaddress>
-		</TextBox>
 	</Execution>
 
 </Automation>
