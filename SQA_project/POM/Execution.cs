@@ -17,6 +17,7 @@ namespace  SQA_project.POM
         //  WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
         static public IWebDriver driver;
         public IWebDriver radiobutn;
+      
 
         public TestContext testContext;
         public TestContext TestContext
@@ -57,8 +58,8 @@ namespace  SQA_project.POM
         }
         [TestCleanup]
         public  void TestCleanup() {
-            //QuitChrome();
-        }
+          // QuitChrome();
+        } 
 
     }
 }

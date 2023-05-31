@@ -19,11 +19,17 @@ namespace SQA_project.POM
     {
         public static IWebDriver driver;
         public static InputSimulator Isimulator;
+
+        public IWebElement element;
+
+        
         public void InitilizeChrome() {
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
         }
-
+        public void NavigateBackPage() {
+            driver.Navigate().Back();
+        }
         public void InitilizeInputSimulator() { 
         Isimulator = new InputSimulator();
         }
@@ -77,13 +83,13 @@ namespace SQA_project.POM
         public string GetElementText(By by) {
             string text;
              try { text = driver.FindElement(by).Text; }
-            catch
+             catch
             {
                 try { text = driver.FindElement(by).GetAttribute("value"); }
                 catch { text = driver.FindElement(by).GetAttribute("innerHTML"); }
                 
             }
-            return text;
+             return text;
 
         }
         public String GetElementState(By by) {

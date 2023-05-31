@@ -24,10 +24,7 @@ namespace SQA_project.POM.SwagLabs.AccountLogin
             string url = TestContext.DataRow["url"].ToString();
             string standarUsername = TestContext.DataRow["stndrUsername"].ToString();
             string password = TestContext.DataRow["password"].ToString();
-            TestContext.Properties.Add("url", url);
-            TestContext.Properties.Add("stndrUsername", standarUsername);
-            TestContext.Properties.Add("password", password);
-
+           
             OpenUrl(url);
             loginPage.Login(standarUsername, password);
             
